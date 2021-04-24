@@ -1,30 +1,12 @@
 import React from "react";
 
 class CartItem extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      price: 999,
-      title: "Mobile Phone",
-      qty: 2,
-      img: "",
-    };
-  }
-  increaseQuantity =() =>{
-    this.setState({
-        qty:this.state.qty+1
-    })
-  }
-  decreaseQuantity  =() =>{
-    if(this.state.qty > 0){
-        this.setState({
-        qty:this.state.qty-1
-    })
-  }
-}
+ 
+ 
   render() {
     
-    const { price, title, qty } = this.state;
+    const { price, title, qty } = this.props.product;
+    const { product,onIncreaseQuantity,onDecreaseQuantity,OnDeleteItem} = this.props;
     return (
       <div className="cart-item">
         <div className="left-block">
@@ -38,20 +20,21 @@ class CartItem extends React.Component {
             <img
               alt="increase"
               className="action-icons"
-              src="https://www.flaticon.com/svg/vstatic/svg/992/992651.svg?token=exp=1619266629~hmac=12080decae03eb76742599eef7ade1ab"
-              onClick={this.increaseQuantity}
+              src="https://www.flaticon.com/svg/vstatic/svg/1828/1828926.svg?token=exp=1619288570~hmac=c9e765612ad8c0c0ed65fda8ee16c34f"
+              onClick={() =>{onIncreaseQuantity(product)}}
             />
 
             <img
               alt="decrease"
               className="action-icons"
-              src="https://www.flaticon.com/svg/vstatic/svg/992/992683.svg?token=exp=1619266571~hmac=bfeb4390323c5608ff958af30ea22801"
-              onClick={this.decreaseQuantity}
+              src="https://www.flaticon.com/svg/vstatic/svg/992/992683.svg?token=exp=1619288494~hmac=5229799565660ba38ec425c03ec2d6c4"
+              onClick={() =>{onDecreaseQuantity(product)}}
             />
             <img
               alt="delete"
               className="action-icons"
-              src="https://www.flaticon.com/svg/vstatic/svg/1214/1214428.svg?token=exp=1619266664~hmac=c8ee45cef073dbf2a2fbb95587ea16f7"
+              src="https://www.flaticon.com/svg/vstatic/svg/3096/3096673.svg?token=exp=1619288659~hmac=6c1d8547d1f1092cce10d5023023eafe"
+              onClick={() =>{OnDeleteItem(product.id)}}
             />
           </div>
         </div>
