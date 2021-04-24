@@ -1,12 +1,9 @@
 import React from "react";
 
-class CartItem extends React.Component {
+const CartItem = (props) =>  {
  
- 
-  render() {
-    
-    const { price, title, qty } = this.props.product;
-    const { product,onIncreaseQuantity,onDecreaseQuantity,OnDeleteItem} = this.props;
+    const { price, title, qty } = props.product;
+    const { product,onIncreaseQuantity,onDecreaseQuantity,OnDeleteItem} = props;
     return (
       <div className="cart-item">
         <div className="left-block">
@@ -20,20 +17,20 @@ class CartItem extends React.Component {
             <img
               alt="increase"
               className="action-icons"
-              src="https://www.flaticon.com/svg/vstatic/svg/1828/1828926.svg?token=exp=1619288570~hmac=c9e765612ad8c0c0ed65fda8ee16c34f"
+              src="https://pics.freeicons.io/uploads/icons/png/3642717691543238914-512.png"
               onClick={() =>{onIncreaseQuantity(product)}}
             />
 
             <img
               alt="decrease"
               className="action-icons"
-              src="https://www.flaticon.com/svg/vstatic/svg/992/992683.svg?token=exp=1619288494~hmac=5229799565660ba38ec425c03ec2d6c4"
+              src="https://pics.freeicons.io/uploads/icons/png/18537612601543238905-512.png"
               onClick={() =>{onDecreaseQuantity(product)}}
             />
             <img
               alt="delete"
               className="action-icons"
-              src="https://www.flaticon.com/svg/vstatic/svg/3096/3096673.svg?token=exp=1619288659~hmac=6c1d8547d1f1092cce10d5023023eafe"
+              src="https://pics.freeicons.io/uploads/icons/png/2790131631558965374-512.png"
               onClick={() =>{OnDeleteItem(product.id)}}
             />
           </div>
@@ -41,7 +38,7 @@ class CartItem extends React.Component {
       </div>
     );
   }
-}
+
 const Styles = {
   image: {
     height: 110,
