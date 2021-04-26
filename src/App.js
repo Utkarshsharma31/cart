@@ -70,9 +70,9 @@ class App extends React.Component {
     const { products } = this.state;
     let cartTotal=0
     products.map((product)=>{
-      cartTotal = cartTotal+product.qty*product.price
+     return cartTotal = cartTotal+product.qty*product.price
     })
-    return cartTotal
+    return ''
 
   }
   render() {
